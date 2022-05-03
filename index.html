@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .grid
+    {
+        display: flex;
+    }
+
+    .padding-left
+    {
+        padding-left: 20px;
+    }
+    .padding
+    {
+        padding-left: 50px;
+    }
+    
+    button
+    {
+        border: none;
+        padding: 10px 50px;
+        background-color: green;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    </style>
+</head>
+<body>
+  <form action="" class="grid">
+      <div class="input-1">
+        <input type="radio" name="fav_language" value="SMS">
+        <label class="padding-left">SMS</label>
+      </div>
+      <div class="input-2 padding">
+        <input type="radio" name="fav_language" value="L">
+        <label class="padding-left">CALL</label>
+    </div>
+  </form>
+  <button>SEND OTP</button>
+  <script>
+    //   let request = new XMLHttpRequest();
+    //   request.open("GET","https://us-central1-roopler-database.cloudfunctions.net/phone_call");
+    //   request.send();
+    //   request.onclick = () => {
+    //       if(request.status === 200)
+    //       else
+    //   }
+
+    let request = new XMLHttpRequest();
+      request.open("GET","https://us-central1-roopler-database.cloudfunctions.net/phone_call");
+      request.send();
+      request.onload = () => {
+          console.log(request)
+          if(request.status === 200)
+          {
+              console.log(JSON.parse(request.response))
+          }
+          else
+          {
+              console.log(`error ${request.status}`)
+          }
+      }
+  </script>
+</body>
+</html>
